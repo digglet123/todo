@@ -18,11 +18,11 @@ public class TodoTask {
         this.description = description;
     }
 
-    public boolean getCompletedStatus() {
+    public boolean getCompleted() {
         return completed;
     }
 
-    public void setCompletedStatus(boolean completed) {
+    public void setCompleted(boolean completed) {
         this.completed = completed;
     }
 

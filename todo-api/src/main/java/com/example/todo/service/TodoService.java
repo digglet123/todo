@@ -31,7 +31,7 @@ public class TodoService {
     public Mono<TodoTask> setTodoTaskCompleted(String id) {
         return todoRepository.findById(id)
                 .map(todoTask -> {
-                    todoTask.setCompletedStatus(true);
+                    todoTask.setCompleted(true);
                     return todoTask;
                 })
                 .flatMap(todoRepository::save);
