@@ -6,6 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "todos")
 public class TodoTask {
 
+    public TodoTask(String id, String description, boolean completed) {
+        this.id = id;
+        this.description = description;
+        this.completed = completed;
+    }
+
     public String getId() {
         return id;
     }
