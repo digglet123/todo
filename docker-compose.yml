@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # MongoDB service using official image
+  mongodb:
+    image: mongo:latest
+    container_name: springboot-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: documents
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
