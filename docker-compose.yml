@@ -14,6 +14,18 @@ services:
     networks:
       - app-network
 
+  springboot-app:
+    image: example/todo
+    container_name: todo-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:rootpassword@mongodb:27017/documents?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
