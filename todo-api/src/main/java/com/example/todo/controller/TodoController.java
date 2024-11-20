@@ -34,6 +34,9 @@ public class TodoController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<TodoTask> saveTodoTask(@RequestBody TodoTask todoTask) {
+        if (todoTask.getDescription() == null || todoTask.getDescription().isEmpty()) {
+            throw new IllegalArgumentException("Description cannot be empty");
+        }
         return todoService.saveTodoTask(todoTask);
     }
 

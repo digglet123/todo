@@ -33,8 +33,12 @@ export class AppComponent implements OnInit {
   
 
   addTodoTask(description: string) {
+    if (description.length < 1) {
+      return;
+    }
     this.todoService.addTodoTask(description).subscribe(() => {
       this.fetchTodoTasks();
+      this.newTodoTask = '';
     });
   }
 
